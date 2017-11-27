@@ -15,6 +15,10 @@
 		5E52ECBE1FC24B0700C585BB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5E52ECBC1FC24B0700C585BB /* Main.storyboard */; };
 		5E52ECC01FC24B0700C585BB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5E52ECBF1FC24B0700C585BB /* Assets.xcassets */; };
 		5E52ECC31FC24B0700C585BB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5E52ECC11FC24B0700C585BB /* LaunchScreen.storyboard */; };
+		5E6A65821FCBB9060087D008 /* GameSprite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E6A65811FCBB9060087D008 /* GameSprite.swift */; };
+		5E6A65841FCBBA340087D008 /* Bee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E6A65831FCBBA340087D008 /* Bee.swift */; };
+		5E6A65861FCBC0190087D008 /* Ground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E6A65851FCBC0190087D008 /* Ground.swift */; };
+		5E6A65881FCBC8A10087D008 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E6A65871FCBC8A10087D008 /* Player.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +32,10 @@
 		5E52ECBF1FC24B0700C585BB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5E52ECC21FC24B0700C585BB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5E52ECC41FC24B0700C585BB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5E6A65811FCBB9060087D008 /* GameSprite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSprite.swift; sourceTree = "<group>"; };
+		5E6A65831FCBBA340087D008 /* Bee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bee.swift; sourceTree = "<group>"; };
+		5E6A65851FCBC0190087D008 /* Ground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ground.swift; sourceTree = "<group>"; };
+		5E6A65871FCBC8A10087D008 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +77,10 @@
 				5E52ECBF1FC24B0700C585BB /* Assets.xcassets */,
 				5E52ECC11FC24B0700C585BB /* LaunchScreen.storyboard */,
 				5E52ECC41FC24B0700C585BB /* Info.plist */,
+				5E6A65811FCBB9060087D008 /* GameSprite.swift */,
+				5E6A65831FCBBA340087D008 /* Bee.swift */,
+				5E6A65851FCBC0190087D008 /* Ground.swift */,
+				5E6A65871FCBC8A10087D008 /* Player.swift */,
 			);
 			path = "Ejemplo 1";
 			sourceTree = "<group>";
@@ -147,7 +159,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5E6A65861FCBC0190087D008 /* Ground.swift in Sources */,
+				5E6A65841FCBBA340087D008 /* Bee.swift in Sources */,
+				5E6A65821FCBB9060087D008 /* GameSprite.swift in Sources */,
 				5E52ECB91FC24B0700C585BB /* GameScene.swift in Sources */,
+				5E6A65881FCBC8A10087D008 /* Player.swift in Sources */,
 				5E52ECBB1FC24B0700C585BB /* GameViewController.swift in Sources */,
 				5E52ECB31FC24B0700C585BB /* AppDelegate.swift in Sources */,
 			);
@@ -286,10 +302,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = FD4MXK47VS;
 				INFOPLIST_FILE = "Ejemplo 1/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.evoltech.Ejemplo-1";
+				PRODUCT_BUNDLE_IDENTIFIER = com.evoltech.Abeja;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -300,10 +318,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = FD4MXK47VS;
 				INFOPLIST_FILE = "Ejemplo 1/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.evoltech.Ejemplo-1";
+				PRODUCT_BUNDLE_IDENTIFIER = com.evoltech.Abeja;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
