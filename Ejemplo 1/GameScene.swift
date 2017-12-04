@@ -8,7 +8,7 @@
 
 import SpriteKit
 
-class GameScene: SKScene {
+class GameScene: SKScene, SKPhysicsContactDelegate {
     
     let cam = SKCameraNode()
     let player = Player()
@@ -36,6 +36,7 @@ class GameScene: SKScene {
         encounterManager.addEncountersToScene(gameScene: self)
         self.addChild(powerUpStar)
         powerUpStar.position = CGPoint(x: -2000, y: -2000)
+        self.physicsWorld.contactDelegate = self
     }
     
     override func didSimulatePhysics() {
@@ -89,6 +90,29 @@ class GameScene: SKScene {
         player.startFlapping()
     }
     
+    func didBegin(_ contact: SKPhysicsContact) {
+        let otherBody:SKPhysicsBody
+        let penguinMask = PhysicsCategory.penguin.rawValue | PhysicsCategory.damagedPenguin.rawValue
+        if (contact.bodyA.categoryBitMask & penguinMask) > 0 {
+            otherBody = contact.bodyB
+        }
+        else {
+            otherBody = contact.bodyA
+        }
+        switch otherBody.categoryBitMask {
+            case PhysicsCategory.ground.rawValue:
+                print("hit the ground")
+            case PhysicsCategory.enemy.rawValue:
+                print("take damage")
+            case PhysicsCategory.coin.rawValue:
+                print("collect a coin")
+            case PhysicsCategory.powerup.rawValue:
+                print("start the power-up")
+            default:
+                print("Contact with no game logic")
+        }
+    }
+    
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         player.stopFlapping()
     }
@@ -100,5 +124,13 @@ class GameScene: SKScene {
     override func update(_ currentTime: TimeInterval) {
         player.update()
     }
-    
+}
+
+enum PhysicsCategory:UInt32 {
+    case penguin = 1
+    case damagedPenguin = 2
+    case ground = 4
+    case enemy = 8
+    case coin = 16
+    case powerup = 32
 }

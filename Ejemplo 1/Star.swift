@@ -20,6 +20,7 @@ class  Star: SKSpriteNode, GameSprite {
         self.physicsBody = SKPhysicsBody(circleOfRadius: size.width/2)
         self.physicsBody?.affectedByGravity = false
         self.run(pulseAnimation)
+        self.physicsBody?.categoryBitMask = PhysicsCategory.powerup.rawValue
     }
     
     func createAnimations() {

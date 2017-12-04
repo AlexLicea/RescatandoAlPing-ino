@@ -17,6 +17,19 @@ class Player : SKSpriteNode,GameSprite {
     var flapping = false
     let maxFlappingForce :CGFloat = 57000
     let maxHeight :CGFloat = 1000
+    // The player will be able to take 3 hits before game over:
+    var health:Int = 3
+    // Keep track of when the player is invulnerable:
+    var invulnerable = false
+    // Keep track of when the player is newly damaged:
+    var damaged = false
+    // We will create animations to run when the player takes
+    // damage or dies. Add these properties to store them:
+    var damageAnimation = SKAction()
+    var dieAnimation = SKAction()
+    // We want to stop forward velocity if the player dies,
+    // so we will now store forward velocity as a property:
+    var forwardVelocity:CGFloat = 200
     
     init() {
         super.init(texture: nil, color: .clear, size: initialSize)
@@ -27,6 +40,12 @@ class Player : SKSpriteNode,GameSprite {
         self.physicsBody?.linearDamping = 0.9
         self.physicsBody?.mass = 30
         self.physicsBody?.allowsRotation = false
+        self.physicsBody?.categoryBitMask = PhysicsCategory.penguin.rawValue
+        self.physicsBody?.contactTestBitMask = PhysicsCategory.enemy.rawValue |
+        PhysicsCategory.ground.rawValue |
+        PhysicsCategory.powerup.rawValue |
+        PhysicsCategory.coin.rawValue
+        self.physicsBody?.collisionBitMask = PhysicsCategory.ground.rawValue
         }
     
     func createAnimations() {
