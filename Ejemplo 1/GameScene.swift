@@ -17,6 +17,8 @@ class GameScene: SKScene {
     let initialPlayersPosition = CGPoint(x: 150,y: 250)
     var playerProgress = CGFloat()
     let encounterManager = EncounterManager()
+    var nextEncounterSpawnPosition = CGFloat(150)
+    let powerUpStar = Star()
     
     override func didMove(to view: SKView) {
         self.anchorPoint = .zero
@@ -32,6 +34,8 @@ class GameScene: SKScene {
         screenCenterY = self.size.height/2
         encounterManager.encounters[0].position = CGPoint(x: 400, y: 330)
         encounterManager.addEncountersToScene(gameScene: self)
+        self.addChild(powerUpStar)
+        powerUpStar.position = CGPoint(x: -2000, y: -2000)
     }
     
     override func didSimulatePhysics() {
@@ -48,6 +52,26 @@ class GameScene: SKScene {
         }
         self.camera!.position = CGPoint(x: player.position.x, y:cameraYPos)
         ground.checForReposition(playerProgress: playerProgress)
+        // Check to see if we should set a new encounter:
+        if player.position.x > nextEncounterSpawnPosition {
+            encounterManager.placeNextEncounter(currentXPos: nextEncounterSpawnPosition)
+            nextEncounterSpawnPosition += 1200
+            // Each encounter has a 10% chance to spawn a star:
+            let starRoll = Int(arc4random_uniform(10))
+            if starRoll == 0 {
+                // Only move the star if it is off the screen.
+                if abs(player.position.x - powerUpStar.position.x) > 1200 {
+                    // Y Position 50-450:
+                    let randomYPos = 50 + CGFloat(arc4random_uniform(400))
+                    powerUpStar.position = CGPoint(x: nextEncounterSpawnPosition, y: randomYPos)
+                    // Remove any previous velocity and spin:
+                    powerUpStar.physicsBody?.angularVelocity = 0
+                    powerUpStar.physicsBody?.velocity =
+                    CGVector(dx: 0, dy: 0)
+                }
+                
+            }
+        }
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
