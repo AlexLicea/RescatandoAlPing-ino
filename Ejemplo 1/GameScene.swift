@@ -19,6 +19,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     let encounterManager = EncounterManager()
     var nextEncounterSpawnPosition = CGFloat(150)
     let powerUpStar = Star()
+    var coinsCollected = 0
     
     override func didMove(to view: SKView) {
         self.anchorPoint = .zero
@@ -102,12 +103,23 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         switch otherBody.categoryBitMask {
             case PhysicsCategory.ground.rawValue:
                 print("hit the ground")
+                player.takeDamage()
             case PhysicsCategory.enemy.rawValue:
                 print("take damage")
+                player.takeDamage()
             case PhysicsCategory.coin.rawValue:
                 print("collect a coin")
             case PhysicsCategory.powerup.rawValue:
                 print("start the power-up")
+            case PhysicsCategory.coin.rawValue:
+                // Try to cast the otherBody's node as a Coin:
+                if let coin = otherBody.node as? Coin {
+                    // Invoke the collect animation:
+                    coin.collect()
+                        // Add the value of the coin to our counter:
+                    self.coinsCollected += coin.value
+                    print(self.coinsCollected)
+            }
             default:
                 print("Contact with no game logic")
         }
