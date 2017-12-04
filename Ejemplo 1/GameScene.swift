@@ -16,6 +16,7 @@ class GameScene: SKScene {
     var screenCenterY = CGFloat()
     let initialPlayersPosition = CGPoint(x: 150,y: 250)
     var playerProgress = CGFloat()
+    let encounterManager = EncounterManager()
     
     override func didMove(to view: SKView) {
         self.anchorPoint = .zero
@@ -29,6 +30,8 @@ class GameScene: SKScene {
         self.addChild(player)
         self.physicsWorld.gravity = CGVector(dx: 0, dy: -5)
         screenCenterY = self.size.height/2
+        encounterManager.encounters[0].position = CGPoint(x: 400, y: 330)
+        encounterManager.addEncountersToScene(gameScene: self)
     }
     
     override func didSimulatePhysics() {
