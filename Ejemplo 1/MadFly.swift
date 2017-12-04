@@ -1,31 +1,31 @@
 //
-//  Bee.swift
+//  MadFly.swift
 //  Ejemplo 1
 //
-//  Created by Alexis Rogelio León Licea on 26/11/17.
+//  Created by Alexis Rogelio León Licea on 02/12/17.
 //  Copyright © 2017 Evolution Technologies SA de CV. All rights reserved.
 //
 
 import Foundation
 import SpriteKit
 
-class Bee: SKSpriteNode, GameSprite {
-    var initialSize:CGSize = CGSize(width: 28, height: 24)
-    var textureAtlas:SKTextureAtlas = SKTextureAtlas(named:"Enemies")
+class MadFly: SKSpriteNode, GameSprite {
+    var initialSize = CGSize(width: 61, height: 29)
+    var textureAtlas: SKTextureAtlas = SKTextureAtlas(named: "Enemies")
     var flyAnimation = SKAction()
     
     init() {
         super.init(texture: nil, color: .clear, size: initialSize)
+        self.physicsBody = SKPhysicsBody(circleOfRadius: size.width/2)
+        self.physicsBody?.affectedByGravity = false
         createAnimations()
         self.run(flyAnimation)
-        self.physicsBody = SKPhysicsBody(circleOfRadius: size.width / 2)
-        self.physicsBody?.affectedByGravity = false
     }
     
     func createAnimations() {
         let flyFrames:[SKTexture] = [
-            textureAtlas.textureNamed("bee"),
-            textureAtlas.textureNamed("bee-fly")
+        textureAtlas.textureNamed("madfly"),
+        textureAtlas.textureNamed("madfly-fly")
         ]
         let flyAction = SKAction.animate(with: flyFrames, timePerFrame: 0.14)
         flyAnimation = SKAction.repeatForever(flyAction)
@@ -33,7 +33,7 @@ class Bee: SKSpriteNode, GameSprite {
     
     func onTap() {}
     
-     required init?(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
 }

@@ -12,22 +12,21 @@ import SpriteKit
 class Player : SKSpriteNode,GameSprite {
     var initialSize = CGSize(width: 64, height: 64)
     var textureAtlas:SKTextureAtlas = SKTextureAtlas(named:"Pierre")
-    // Pierre has multiple animations. Right now, we will
-    // create one animation for flying up,
-    // and one for going down:
     var flyAnimation = SKAction()
     var soarAnimation = SKAction()
+    var flapping = false
+    let maxFlappingForce :CGFloat = 57000
+    let maxHeight :CGFloat = 1000
     
     init() {
-        // Call the init function on the
-        // base class (SKSpriteNode)
         super.init(texture: nil, color: .clear, size: initialSize)
-        
         createAnimations()
-        // If we run an action with a key, "flapAnimation",
-        // we can later reference that
-        // key to remove the action.
-        self.run(flyAnimation, withKey: "flapAnimation")
+        self.run(soarAnimation, withKey: "soarAnimation")
+        let bodyTexture = textureAtlas.textureNamed("pierre-flying-3")
+        self.physicsBody = SKPhysicsBody(texture: bodyTexture, size: self.size)
+        self.physicsBody?.linearDamping = 0.9
+        self.physicsBody?.mass = 30
+        self.physicsBody?.allowsRotation = false
         }
     
     func createAnimations() {
@@ -35,30 +34,56 @@ class Player : SKSpriteNode,GameSprite {
         rotateUpAction.timingMode = .easeOut
         let rotateDownAction = SKAction.rotate(toAngle: -1, duration: 0.8)
         rotateDownAction.timingMode = .easeIn
-        // Create the flying animation
         let flyFrames:[SKTexture] = [
         textureAtlas.textureNamed("pierre-flying-1"),
         textureAtlas.textureNamed("pierre-flying-2"),
         textureAtlas.textureNamed("pierre-flying-3"),
         textureAtlas.textureNamed("pierre-flying-4"),
         textureAtlas.textureNamed("pierre-flying-3"),
-        textureAtlas.textureNamed("pierre-flying-2")
+        textureAtlas.textureNamed("pierre-flying-2"),
+        textureAtlas.textureNamed("pierre-flying-1")
         ]
         let flyAction = SKAction.animate(with: flyFrames, timePerFrame: 0.03)
-        // Group together the flying animation with rotation:
         flyAnimation = SKAction.group([SKAction.repeatForever(flyAction), rotateUpAction])
-        // Create the soaring animation,
-        // just one frame for now:
         let soarFrames:[SKTexture] = [textureAtlas.textureNamed("pierre-flying-1")]
         let soarAction = SKAction.animate(with: soarFrames, timePerFrame: 1)
-        // Group the soaring animation with the rotation down:
         soarAnimation = SKAction.group([SKAction.repeatForever(soarAction), rotateDownAction])
         }
     
-    // Implement onTap to conform to the GameSprite protocol:
-    func onTap() {}
-    // Satisfy the NSCoder required init:
+    func onTap() {
+        self.xScale = 4
+        self.yScale = 4
+    }
+    
+    func update() {
+        if self.flapping {
+            var forcetoApply = maxFlappingForce
+            if position.y > 600 {
+                let percentageOfMaxHeight = position.y
+                let flappingForceSubtraction = percentageOfMaxHeight * maxFlappingForce
+                forcetoApply -= flappingForceSubtraction
+            }
+            self.physicsBody?.applyForce(CGVector(dx: 0, dy: forcetoApply))
+            if self.physicsBody!.velocity.dy > 300 {
+                self.physicsBody!.velocity.dy = 300
+            }
+        }
+        self.physicsBody?.velocity.dx = 200
+    }
+    
     required init?(coder aDecoder: NSCoder) {
     super.init(coder: aDecoder)
+    }
+    
+    func startFlapping() {
+        self.removeAction(forKey: "soarAnimation")
+        self.run(flyAnimation, withKey: "flapAnimation")
+        self.flapping = true
+    }
+    
+    func stopFlapping() {
+        self.removeAction(forKey: "flapAnimation")
+        self.run(soarAnimation, withKey: "flapAnimation")
+        self.flapping = false
     }
 }
