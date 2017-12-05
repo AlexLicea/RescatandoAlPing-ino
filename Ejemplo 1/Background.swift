@@ -24,8 +24,7 @@ class Background: SKSpriteNode {
     // Store the Backgrounds texture:
     var textureAtlas = SKTextureAtlas(named: "Backgrounds")
     
-    func spawn(parentNode:SKNode, imageName:String,
-               zPosition:CGFloat, movementMultiplier:CGFloat) {
+    func spawn(parentNode:SKNode, imageName:String, zPosition:CGFloat, movementMultiplier:CGFloat) {
         // Position from the bottom left:
         self.anchorPoint = CGPoint.zero
         // Start backgrounds at the top of the ground (y: 30)
