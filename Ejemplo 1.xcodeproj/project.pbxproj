@@ -28,6 +28,8 @@
 		5E6A65881FCBC8A10087D008 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E6A65871FCBC8A10087D008 /* Player.swift */; };
 		5E7F30471FD7343600C0639A /* HUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E7F30461FD7343600C0639A /* HUD.swift */; };
 		5E7F30491FD73DB100C0639A /* Background.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E7F30481FD73DB100C0639A /* Background.swift */; };
+		5E7F304C1FD7449600C0639A /* PierrePath.sks in Resources */ = {isa = PBXBuildFile; fileRef = 5E7F304A1FD7449600C0639A /* PierrePath.sks */; };
+		5E7F304D1FD7449600C0639A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5E7F304B1FD7449600C0639A /* Assets.xcassets */; };
 		5EBDEAE81FD4F70E001E8803 /* EncounterB.sks in Resources */ = {isa = PBXBuildFile; fileRef = 5EBDEAE71FD4F70E001E8803 /* EncounterB.sks */; };
 		5EBDEAEA1FD4F766001E8803 /* EncounterC.sks in Resources */ = {isa = PBXBuildFile; fileRef = 5EBDEAE91FD4F766001E8803 /* EncounterC.sks */; };
 /* End PBXBuildFile section */
@@ -56,6 +58,8 @@
 		5E6A65871FCBC8A10087D008 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		5E7F30461FD7343600C0639A /* HUD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HUD.swift; sourceTree = "<group>"; };
 		5E7F30481FD73DB100C0639A /* Background.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Background.swift; sourceTree = "<group>"; };
+		5E7F304A1FD7449600C0639A /* PierrePath.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = PierrePath.sks; sourceTree = "<group>"; };
+		5E7F304B1FD7449600C0639A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5EBDEAE71FD4F70E001E8803 /* EncounterB.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = EncounterB.sks; sourceTree = "<group>"; };
 		5EBDEAE91FD4F766001E8803 /* EncounterC.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = EncounterC.sks; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -74,6 +78,8 @@
 		5E52ECA61FC24B0700C585BB = {
 			isa = PBXGroup;
 			children = (
+				5E7F304A1FD7449600C0639A /* PierrePath.sks */,
+				5E7F304B1FD7449600C0639A /* Assets.xcassets */,
 				5E52ECB11FC24B0700C585BB /* Ejemplo 1 */,
 				5E52ECB01FC24B0700C585BB /* Products */,
 			);
@@ -181,8 +187,10 @@
 				5E52ECBE1FC24B0700C585BB /* Main.storyboard in Resources */,
 				5E52ECB51FC24B0700C585BB /* GameScene.sks in Resources */,
 				5EBDEAEA1FD4F766001E8803 /* EncounterC.sks in Resources */,
+				5E7F304D1FD7449600C0639A /* Assets.xcassets in Resources */,
 				5E52ECC01FC24B0700C585BB /* Assets.xcassets in Resources */,
 				5E528C731FD4E0330090CEB2 /* EncounterA.sks in Resources */,
+				5E7F304C1FD7449600C0639A /* PierrePath.sks in Resources */,
 				5E52ECC31FC24B0700C585BB /* LaunchScreen.storyboard in Resources */,
 				5E52ECB71FC24B0700C585BB /* Actions.sks in Resources */,
 			);
