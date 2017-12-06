@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5E05A5E01FD883EA005D9760 /* MenuScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E05A5DF1FD883EA005D9760 /* MenuScene.swift */; };
+		5E05A5E41FD89488005D9760 /* Sound in Resources */ = {isa = PBXBuildFile; fileRef = 5E05A5E31FD89487005D9760 /* Sound */; };
 		5E34B9751FD38632005AE20D /* Star.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E34B9741FD38632005AE20D /* Star.swift */; };
 		5E34B9771FD38A66005AE20D /* MadFly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E34B9761FD38A66005AE20D /* MadFly.swift */; };
 		5E34B9791FD38CEA005AE20D /* Bat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E34B9781FD38CEA005AE20D /* Bat.swift */; };
@@ -37,6 +38,7 @@
 
 /* Begin PBXFileReference section */
 		5E05A5DF1FD883EA005D9760 /* MenuScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuScene.swift; sourceTree = "<group>"; };
+		5E05A5E31FD89487005D9760 /* Sound */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Sound; path = ../../../../Documents/assets/Sound; sourceTree = "<group>"; };
 		5E34B9741FD38632005AE20D /* Star.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Star.swift; sourceTree = "<group>"; };
 		5E34B9761FD38A66005AE20D /* MadFly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MadFly.swift; sourceTree = "<group>"; };
 		5E34B9781FD38CEA005AE20D /* Bat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bat.swift; sourceTree = "<group>"; };
@@ -96,6 +98,7 @@
 		5E52ECB11FC24B0700C585BB /* Ejemplo 1 */ = {
 			isa = PBXGroup;
 			children = (
+				5E05A5E31FD89487005D9760 /* Sound */,
 				5E52ECC41FC24B0700C585BB /* Info.plist */,
 				5E52ECB61FC24B0700C585BB /* Actions.sks */,
 				5E528C721FD4E0330090CEB2 /* EncounterA.sks */,
@@ -186,6 +189,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5E05A5E41FD89488005D9760 /* Sound in Resources */,
 				5EBDEAE81FD4F70E001E8803 /* EncounterB.sks in Resources */,
 				5E52ECBE1FC24B0700C585BB /* Main.storyboard in Resources */,
 				5E52ECB51FC24B0700C585BB /* GameScene.sks in Resources */,

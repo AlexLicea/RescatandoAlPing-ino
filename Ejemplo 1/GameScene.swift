@@ -88,6 +88,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             // so they trail behind as the player moves forward.
             dotEmitter.targetNode = self
         }
+        self.run(SKAction.playSoundFileNamed("Sound/StartGame.aif", waitForCompletion: false))
     }
     
     override func didSimulatePhysics() {

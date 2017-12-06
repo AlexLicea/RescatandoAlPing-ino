@@ -17,6 +17,8 @@ class Player : SKSpriteNode, GameSprite {
     // create one animation for flying up, and one for going down:
     var flyAnimation = SKAction()
     var soarAnimation = SKAction()
+    let powerupSound = SKAction.playSoundFileNamed("Sound/Powerup.aif", waitForCompletion: false)
+    let hurtSound = SKAction.playSoundFileNamed("Sound/Hurt.aif", waitForCompletion: false)
     
     // Store whether we are flapping our wings or in free-fall:
     var flapping = false
@@ -253,6 +255,7 @@ class Player : SKSpriteNode, GameSprite {
             ])
         // Execute the sequence:
         self.run(starSequence, withKey: "starPower")
+        self.run(powerupSound)
     }
     
     func takeDamage() {
@@ -271,6 +274,7 @@ class Player : SKSpriteNode, GameSprite {
             // Run the take damage animation:
             self.run(self.damageAnimation)
         }
+        self.run(hurtSound)
     }
     
     func die() {
