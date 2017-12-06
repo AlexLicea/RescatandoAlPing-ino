@@ -284,6 +284,9 @@ class Player : SKSpriteNode, GameSprite {
         self.flapping = false
         // Stop forward movement:
         self.forwardVelocity = 0
+        if let gameScene = self.parent as? GameScene {
+            gameScene.gameOver()
+        }
     }
     
     func onTap() {}

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5E05A5E01FD883EA005D9760 /* MenuScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E05A5DF1FD883EA005D9760 /* MenuScene.swift */; };
 		5E34B9751FD38632005AE20D /* Star.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E34B9741FD38632005AE20D /* Star.swift */; };
 		5E34B9771FD38A66005AE20D /* MadFly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E34B9761FD38A66005AE20D /* MadFly.swift */; };
 		5E34B9791FD38CEA005AE20D /* Bat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E34B9781FD38CEA005AE20D /* Bat.swift */; };
@@ -35,6 +36,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5E05A5DF1FD883EA005D9760 /* MenuScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuScene.swift; sourceTree = "<group>"; };
 		5E34B9741FD38632005AE20D /* Star.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Star.swift; sourceTree = "<group>"; };
 		5E34B9761FD38A66005AE20D /* MadFly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MadFly.swift; sourceTree = "<group>"; };
 		5E34B9781FD38CEA005AE20D /* Bat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bat.swift; sourceTree = "<group>"; };
@@ -59,7 +61,7 @@
 		5E7F30461FD7343600C0639A /* HUD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HUD.swift; sourceTree = "<group>"; };
 		5E7F30481FD73DB100C0639A /* Background.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Background.swift; sourceTree = "<group>"; };
 		5E7F304A1FD7449600C0639A /* PierrePath.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = PierrePath.sks; sourceTree = "<group>"; };
-		5E7F304B1FD7449600C0639A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		5E7F304B1FD7449600C0639A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = ../Assets.xcassets; sourceTree = "<group>"; };
 		5EBDEAE71FD4F70E001E8803 /* EncounterB.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = EncounterB.sks; sourceTree = "<group>"; };
 		5EBDEAE91FD4F766001E8803 /* EncounterC.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = EncounterC.sks; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -78,8 +80,6 @@
 		5E52ECA61FC24B0700C585BB = {
 			isa = PBXGroup;
 			children = (
-				5E7F304A1FD7449600C0639A /* PierrePath.sks */,
-				5E7F304B1FD7449600C0639A /* Assets.xcassets */,
 				5E52ECB11FC24B0700C585BB /* Ejemplo 1 */,
 				5E52ECB01FC24B0700C585BB /* Products */,
 			);
@@ -102,6 +102,7 @@
 				5EBDEAE71FD4F70E001E8803 /* EncounterB.sks */,
 				5EBDEAE91FD4F766001E8803 /* EncounterC.sks */,
 				5E52ECB41FC24B0700C585BB /* GameScene.sks */,
+				5E7F304A1FD7449600C0639A /* PierrePath.sks */,
 				5E52ECB21FC24B0700C585BB /* AppDelegate.swift */,
 				5E7F30481FD73DB100C0639A /* Background.swift */,
 				5E34B9781FD38CEA005AE20D /* Bat.swift */,
@@ -115,8 +116,10 @@
 				5E6A65851FCBC0190087D008 /* Ground.swift */,
 				5E7F30461FD7343600C0639A /* HUD.swift */,
 				5E34B9761FD38A66005AE20D /* MadFly.swift */,
+				5E05A5DF1FD883EA005D9760 /* MenuScene.swift */,
 				5E6A65871FCBC8A10087D008 /* Player.swift */,
 				5E34B9741FD38632005AE20D /* Star.swift */,
+				5E7F304B1FD7449600C0639A /* Assets.xcassets */,
 				5E52ECBF1FC24B0700C585BB /* Assets.xcassets */,
 				5E52ECC11FC24B0700C585BB /* LaunchScreen.storyboard */,
 				5E52ECBC1FC24B0700C585BB /* Main.storyboard */,
@@ -213,6 +216,7 @@
 				5E52ECBB1FC24B0700C585BB /* GameViewController.swift in Sources */,
 				5E52ECB31FC24B0700C585BB /* AppDelegate.swift in Sources */,
 				5E34B97B1FD38DE6005AE20D /* Blade.swift in Sources */,
+				5E05A5E01FD883EA005D9760 /* MenuScene.swift in Sources */,
 				5E34B9771FD38A66005AE20D /* MadFly.swift in Sources */,
 				5E7F30471FD7343600C0639A /* HUD.swift in Sources */,
 				5E528C771FD4E5310090CEB2 /* EncounterManager.swift in Sources */,

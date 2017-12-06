@@ -208,6 +208,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 // If this node adheres to GameSprite, call onTap:
                 gameSprite.onTap()
             }
+            if nodeTouched.name == "restartGame" {
+                self.view?.presentScene(GameScene(size: self.size), transition: .crossFade(withDuration: 0.6))
+            }
+            else if nodeTouched.name == "returnToMenu" {
+                self.view?.presentScene(MenuScene(size: self.size), transition: .crossFade(withDuration: 0.6)) 
+            }
         }
         
         player.startFlapping()
@@ -225,6 +231,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     override func update(_ currentTime: TimeInterval) {
         player.update()
     }
+    
+    func gameOver() {
+        hud.showButtons()
+    }
+    
 }
 
 enum PhysicsCategory:UInt32 {
